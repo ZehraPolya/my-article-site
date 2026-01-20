@@ -1,0 +1,825 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Спрос на льготную ипотеку в Сочи под 6% взлетел — подробный разбор</title>
+  <meta name="description" content="Почему льготная ипотека 6% в Сочи работает не для всех и не на всё: ограничения, механика субсидий, типичные ошибки и пошаговый алгоритм." />
+
+  <style>
+    :root{
+      --bg:#ffffff;
+      --text:#101828;
+      --muted:#475467;
+      --muted-2:#667085;
+      --line:#e4e7ec;
+      --card:#f9fafb;
+      --accent:#0b5fff;
+      --accent-2:#0a4bd6;
+      --shadow: 0 10px 25px rgba(16, 24, 40, .08);
+      --radius: 16px;
+      --max: 1160px;
+
+      --font: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
+      --lh: 1.75;
+    }
+
+    /* Base */
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: var(--font);
+      color:var(--text);
+      background:var(--bg);
+      line-height: var(--lh);
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    a{
+      color:var(--accent);
+      text-decoration: none;
+    }
+    a:hover{ color:var(--accent-2); text-decoration: underline; }
+    img{ max-width:100%; display:block; height:auto; }
+
+    /* Layout */
+    .container{
+      width: min(var(--max), 100% - 32px);
+      margin-inline:auto;
+    }
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr 360px;
+      gap: 28px;
+      align-items:start;
+      padding: 26px 0 56px;
+    }
+    @media (max-width: 980px){
+      .grid{ grid-template-columns: 1fr; }
+    }
+
+    /* Header */
+    .site-header{
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255,255,255,.9);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+    .header-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding: 14px 0;
+      gap: 16px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap: 12px;
+      min-width: 180px;
+    }
+    .logo{
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: linear-gradient(135deg, #fff, #eef2ff);
+      display:grid;
+      place-items:center;
+      font-weight: 800;
+      letter-spacing: .02em;
+    }
+    .brand-title{
+      display:flex;
+      flex-direction:column;
+      line-height:1.2;
+    }
+    .brand-title strong{ font-size: 14px; }
+    .brand-title span{ font-size: 12px; color: var(--muted-2); }
+
+    nav ul{
+      list-style:none;
+      display:flex;
+      gap: 14px;
+      padding:0;
+      margin:0;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    nav a{
+      font-size: 14px;
+      color: var(--text);
+      padding: 8px 10px;
+      border-radius: 12px;
+    }
+    nav a:hover{
+      background: var(--card);
+      text-decoration:none;
+    }
+
+    /* Article header */
+    .article-head{
+      padding: 28px 0 10px;
+    }
+    .kicker{
+      display:inline-flex;
+      gap: 8px;
+      align-items:center;
+      font-size: 12px;
+      color: var(--muted-2);
+      background: var(--card);
+      border: 1px solid var(--line);
+      padding: 6px 10px;
+      border-radius: 999px;
+    }
+    .article-title{
+      font-size: clamp(28px, 3.2vw, 46px);
+      line-height: 1.15;
+      margin: 14px 0 10px;
+      letter-spacing: -0.02em;
+    }
+    .article-subtitle{
+      font-size: 18px;
+      color: var(--muted);
+      margin: 0 0 18px;
+      max-width: 70ch;
+    }
+
+    /* Meta row */
+    .meta{
+      display:flex;
+      gap: 12px;
+      flex-wrap:wrap;
+      align-items:center;
+      color: var(--muted-2);
+      font-size: 13px;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 12px 0;
+    }
+    .meta .item{
+      display:flex;
+      gap: 8px;
+      align-items:center;
+      padding: 6px 10px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+    }
+    .meta .dot{
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--accent);
+      opacity:.8;
+    }
+
+    /* Featured image */
+    .featured{
+      margin: 18px 0 26px;
+      border-radius: var(--radius);
+      overflow:hidden;
+      border: 1px solid var(--line);
+      background: var(--card);
+      box-shadow: var(--shadow);
+    }
+    .featured .ph{
+      aspect-ratio: 16 / 9;
+      display:grid;
+      place-items:center;
+      color: var(--muted-2);
+      font-size: 14px;
+      background: linear-gradient(135deg, #f8fafc, #eef2ff);
+    }
+    .featured figcaption{
+      padding: 10px 14px;
+      font-size: 12px;
+      color: var(--muted-2);
+      border-top: 1px solid var(--line);
+    }
+
+    /* Article content */
+    article{
+      padding-bottom: 14px;
+    }
+    .content{
+      font-size: 18px;
+      max-width: 75ch;
+    }
+    @media (max-width: 980px){
+      .content{ max-width: 100%; }
+    }
+    .content p{ margin: 0 0 16px; }
+    .content h2{
+      font-size: 26px;
+      line-height: 1.25;
+      margin: 28px 0 12px;
+      letter-spacing: -0.01em;
+    }
+    .content h3{
+      font-size: 20px;
+      line-height: 1.3;
+      margin: 20px 0 10px;
+    }
+    .content ul, .content ol{
+      margin: 0 0 18px 1.1em;
+      padding: 0;
+    }
+    .content li{ margin: 6px 0; }
+    .content blockquote{
+      margin: 22px 0;
+      padding: 16px 18px;
+      border-left: 4px solid var(--accent);
+      background: #f7f9ff;
+      border-radius: 12px;
+      color: var(--muted);
+    }
+    .content .callout{
+      margin: 22px 0;
+      padding: 16px 18px;
+      border: 1px solid var(--line);
+      background: var(--card);
+      border-radius: var(--radius);
+    }
+    .content .callout strong{ display:block; margin-bottom: 6px; }
+
+    /* Sidebar */
+    aside{
+      position: sticky;
+      top: 78px;
+      align-self:start;
+      display:flex;
+      flex-direction:column;
+      gap: 16px;
+    }
+    @media (max-width: 980px){
+      aside{ position: static; }
+    }
+    .card{
+      border: 1px solid var(--line);
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 16px;
+    }
+    .card h4{
+      margin: 0 0 10px;
+      font-size: 14px;
+      letter-spacing: .01em;
+      color: var(--text);
+    }
+    .toc a{
+      display:block;
+      padding: 8px 10px;
+      border-radius: 12px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .toc a:hover{
+      background: #fff;
+      color: var(--text);
+      text-decoration:none;
+      border: 1px solid var(--line);
+    }
+
+    .tag{
+      display:inline-flex;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background:#fff;
+      font-size: 12px;
+      color: var(--muted);
+      margin: 4px 6px 0 0;
+    }
+
+    /* Author */
+    .author{
+      display:flex;
+      gap: 14px;
+      align-items:flex-start;
+    }
+    .avatar{
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background: linear-gradient(135deg, #fff, #eaf0ff);
+      overflow:hidden;
+      flex: 0 0 auto;
+      display:grid;
+      place-items:center;
+      color: var(--muted-2);
+      font-size: 12px;
+    }
+    .author p{
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    /* Related posts */
+    .related{
+      border-top: 1px solid var(--line);
+      padding-top: 18px;
+      margin-top: 26px;
+    }
+    .related h2{ margin-top: 0; }
+    .cards{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 12px;
+    }
+    @media (max-width: 980px){
+      .cards{ grid-template-columns: 1fr; }
+    }
+    .post-card{
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--card);
+      overflow:hidden;
+      transition: transform .12s ease, box-shadow .12s ease;
+    }
+    .post-card:hover{
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+    .post-thumb{
+      aspect-ratio: 16 / 9;
+      background: linear-gradient(135deg, #f8fafc, #eef2ff);
+      border-bottom: 1px solid var(--line);
+      display:grid;
+      place-items:center;
+      color: var(--muted-2);
+      font-size: 12px;
+    }
+    .post-body{ padding: 12px 14px 14px; }
+    .post-body strong{ display:block; font-size: 15px; line-height: 1.3; margin-bottom: 6px; }
+    .post-body p{ margin:0; color: var(--muted); font-size: 13px; line-height: 1.55; }
+
+    /* Subscribe */
+    .subscribe{
+      margin-top: 18px;
+      border-top: 1px solid var(--line);
+      padding-top: 18px;
+    }
+    form{
+      display:flex;
+      gap: 10px;
+      flex-wrap:wrap;
+      margin-top: 10px;
+    }
+    input[type="email"], input[type="text"], textarea{
+      width: 100%;
+      padding: 12px 12px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      font: inherit;
+      background: #fff;
+      color: var(--text);
+    }
+    .row{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      width: 100%;
+    }
+    @media (max-width: 520px){
+      .row{ grid-template-columns: 1fr; }
+    }
+    button{
+      border: 0;
+      border-radius: 12px;
+      padding: 12px 14px;
+      font: inherit;
+      font-weight: 650;
+      background: var(--accent);
+      color: #fff;
+      cursor:pointer;
+    }
+    button:hover{ background: var(--accent-2); }
+    .hint{ font-size: 12px; color: var(--muted-2); margin-top: 8px; }
+
+    /* Comments */
+    .comments{
+      margin-top: 18px;
+      border-top: 1px solid var(--line);
+      padding-top: 18px;
+    }
+    .comment{
+      padding: 14px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .comment:last-child{ border-bottom: 0; }
+    .comment .head{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 10px;
+      flex-wrap:wrap;
+      margin-bottom: 4px;
+    }
+    .comment .name{ font-weight: 700; font-size: 14px; }
+    .comment .date{ color: var(--muted-2); font-size: 12px; }
+    .comment .text{ margin: 8px 0 0; color: var(--muted); font-size: 14px; }
+
+    /* Footer */
+    .site-footer{
+      border-top: 1px solid var(--line);
+      padding: 26px 0;
+      color: var(--muted-2);
+      font-size: 13px;
+    }
+    .footer-inner{
+      display:flex;
+      justify-content:space-between;
+      gap: 12px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+
+    /* Small utilities */
+    .sr-only{
+      position:absolute;
+      width:1px; height:1px;
+      padding:0; margin:-1px;
+      overflow:hidden; clip:rect(0,0,0,0);
+      white-space:nowrap; border:0;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 1) Шапка (Header) -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#">
+        <div class="logo" aria-hidden="true">G</div>
+        <div class="brand-title">
+          <strong>Gross Journal</strong>
+          <span>Недвижимость • Инвестиции • Аналитика</span>
+        </div>
+      </a>
+
+      <nav aria-label="Навигация">
+        <ul>
+          <li><a href="#article">Статья</a></li>
+          <li><a href="#author">Об авторе</a></li>
+          <li><a href="#related">Связанные</a></li>
+          <li><a href="#subscribe">Подписка</a></li>
+          <li><a href="#comments">Комментарии</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- 2) Заголовок статьи + 3) Мета-информация -->
+    <section class="article-head" id="article">
+      <span class="kicker">Рынок • Сочи • Ипотека</span>
+
+      <!-- Легко менять название -->
+      <h1 class="article-title">Спрос на льготную ипотеку в Сочи под 6% взлетел — и это не просто цифры из новостей</h1>
+
+      <p class="article-subtitle">
+        Почему стандартные схемы покупки не работают, какие объекты реально подходят под 6%,
+        и что важно успеть сделать до завершения программы в марте 2026 года.
+      </p>
+
+      <!-- Легко менять дату/автора/категорию/время чтения -->
+      <div class="meta" role="contentinfo" aria-label="Мета-информация статьи">
+        <div class="item"><span class="dot" aria-hidden="true"></span><span>Дата: <time datetime="2026-01-20">20 января 2026</time></span></div>
+        <div class="item"><span class="dot" aria-hidden="true"></span><span>Автор: <strong>Редакция</strong></span></div>
+        <div class="item"><span class="dot" aria-hidden="true"></span><span>Категория: <strong>Недвижимость</strong></span></div>
+        <div class="item"><span class="dot" aria-hidden="true"></span><span>Время чтения: <strong>9–12 минут</strong></span></div>
+      </div>
+    </section>
+
+    <div class="grid">
+      <!-- Основная колонка -->
+      <div>
+        <!-- 4) Главное изображение статьи -->
+        <figure class="featured">
+          <div class="ph">
+            <!-- [IMAGE] Вставьте сюда <img src="..." alt="..." /> -->
+            Место для featured image (16:9)
+          </div>
+          <figcaption>Подпись к изображению (опционально): панорама Сочи / новостройки у моря.</figcaption>
+        </figure>
+
+        <!-- 5) Основной текст статьи -->
+        <article class="content" aria-label="Текст статьи">
+          <!-- Большая текстовая область: редактируйте содержимое прямо здесь -->
+          <p>
+            Спрос на льготную ипотеку в Сочи под 6% взлетел — и это не просто цифры из новостей.
+            В чатах инвесторов и на форумах обсуждают: как успеть купить квартиру у моря, пока банки реально одобряют
+            кредиты по госпрограмме, а застройщики не подняли цены на премиум-объекты.
+          </p>
+
+          <p>
+            Проблема в том, что стандартный путь — искать любую новостройку и подавать заявку — не работает.
+            Большинство ЖК не попадают под условия, лимит 6 млн руб. кажется формальностью, а банки часто отказывают,
+            если объект дороже или не аккредитован. В итоге многие теряют время и шанс на выгодную ставку,
+            сталкиваясь с отказами или скрытыми переплатами.
+          </p>
+
+          <blockquote>
+            Главный инсайт: льготная ипотека в Сочи — не для всех и не на всё. Она работает только на ограниченный пул
+            премиальных ЖК, где застройщик готов субсидировать ставку, а банк — одобрить объект по строгим критериям.
+          </blockquote>
+
+          <div class="callout">
+            <strong>Важно</strong>
+            Если действовать по-старому, можно остаться ни с чем: лимиты быстро выбирают, а после марта 2026 ставки могут
+            вырасти в разы. Поэтому важно понимать, какие объекты реально доступны под 6%, как устроен механизм субсидий
+            и почему рассрочка не всегда альтернатива.
+          </div>
+
+          <h2 id="why">Почему привычный подход не работает</h2>
+          <p>
+            Многие покупатели уверены: раз программа льготной ипотеки действует, значит, можно выбрать любой понравившийся ЖК у моря,
+            внести минимальный взнос и получить ставку 6%. На практике всё сложнее.
+          </p>
+          <ul>
+            <li><strong>Лимит 6 млн руб.</strong> — это максимальная сумма кредита, а не цена квартиры.</li>
+            <li><strong>Аккредитация</strong> — банки одобряют не «всё подряд», а проекты по 214-ФЗ и у партнерских застройщиков.</li>
+            <li><strong>Страхование и комиссии</strong> могут увеличивать реальную переплату, а отказ от страховки — поднимать ставку.</li>
+          </ul>
+
+          <p>
+            Ещё одна ловушка — миф о «нулевом взносе». В премиум-сегменте минимальный первоначальный взнос — 15–20%,
+            а по акциям отдельных банков может быть выше. Без взноса купить квартиру у моря невозможно: это требование программы и банков.
+          </p>
+
+          <h2 id="mechanics">Как устроена льготная ипотека в Сочи</h2>
+          <p>
+            Суть программы — государство субсидирует ставку до 6% годовых для новостроек на Черноморском побережье, включая Сочи.
+            Программа продлена до марта 2026 года, но действует только на объекты, аккредитованные банками и участвующие
+            в партнерских схемах с застройщиками.
+          </p>
+
+          <h3>Механизм следующий</h3>
+          <ol>
+            <li>Покупатель выбирает новостройку, аккредитованную банком (обычно это крупные проекты в Центральном районе и Хосте).</li>
+            <li>Подаёт заявку в банк, предоставляя стандартный пакет документов.</li>
+            <li>Банк оценивает объект, проверяет соответствие лимиту и статус застройщика.</li>
+            <li>После одобрения оформляется кредит под 6% годовых на срок до 30 лет, с обязательным страхованием.</li>
+          </ol>
+
+          <h2 id="who">Для кого доступна программа</h2>
+          <p>
+            Базовая льготная ипотека в Сочи — для граждан РФ, без ограничений по доходу и семейному статусу.
+            Главное — внести первоначальный взнос и подтвердить платежеспособность.
+          </p>
+
+          <h2 id="why_only_some">Почему ставка 6% только для определённых ЖК</h2>
+          <p>
+            Льготная ставка действует не на все новостройки. Причина — лимит 6 млн руб. и требования к застройщику.
+            Только проекты, где застройщик готов субсидировать часть стоимости и сотрудничает с банком, попадают в список.
+          </p>
+
+          <h2 id="mortgage_vs_installments">Ипотека или рассрочка: что выбрать</h2>
+          <ul>
+            <li><strong>Ипотека 6%</strong> выгодна для долгосрочного владения: фиксированная ставка, срок до 30 лет, прозрачные условия.</li>
+            <li><strong>Рассрочка</strong> может подойти для быстрой перепродажи или если сложно подтвердить доход, но несёт свои риски.</li>
+            <li>В рассрочке нет обязательного страхования, но итоговая переплата иногда выше, чем в ипотеке с господдержкой.</li>
+          </ul>
+
+          <h2 id="mistakes">Типичные ошибки и мифы</h2>
+          <ol>
+            <li>Ожидание «нулевого взноса» — в премиум-Сочи это практически исключено.</li>
+            <li>Игнорирование полной стоимости — страховка и сопутствующие расходы важны.</li>
+            <li>Выбор неаккредитованных объектов — без аккредитации ставка/одобрение могут быть под вопросом.</li>
+            <li>Недооценка лимита — 6 млн руб. не закрывают цену премиум-объекта, нужна доплата.</li>
+            <li>Ожидание «под ключ» — отделка/мебель/техника оплачиваются отдельно.</li>
+          </ol>
+
+          <h2 id="steps">Пошаговый алгоритм покупки премиум-квартиры у моря по льготной ипотеке</h2>
+          <ol>
+            <li>Определить бюджет: учесть лимит кредита и собственные средства.</li>
+            <li>Изучить список аккредитованных ЖК: запросить перечни у банков и застройщиков.</li>
+            <li>Проверить статус застройщика: проект по 214-ФЗ, партнерство с банком.</li>
+            <li>Подготовить документы: паспорт, подтверждение дохода, занятость.</li>
+            <li>Подать заявку в банк: выбрать оптимальные условия.</li>
+            <li>Оценить объект: банк проверяет соответствие требованиям.</li>
+            <li>Внести первоначальный взнос.</li>
+            <li>Оформить страховку для сохранения льготной ставки.</li>
+            <li>Подписать кредитный договор и ДДУ.</li>
+            <li>Получить ключи и зарегистрировать право собственности.</li>
+          </ol>
+
+          <h2 id="faq">Частые вопросы</h2>
+          <h3>1. Какие объекты в Сочи реально доступны под льготную ипотеку 6%?</h3>
+          <p>
+            Только новостройки, аккредитованные банками и участвующие в программе господдержки.
+            В премиум-сегменте — проекты в центре и Хосте, где застройщик субсидирует ставку.
+          </p>
+
+          <h3>2. Какой минимальный первоначальный взнос нужен?</h3>
+          <p>Обычно 15–20% минимум, по отдельным предложениям банков — выше. Без взноса купить квартиру невозможно.</p>
+
+          <h3>3. Есть ли ограничения по доходу или семейному статусу?</h3>
+          <p>
+            Для базовой льготной ипотеки — нет. Но банк оценивает вашу платёжеспособность и может отказать при недостаточном доходе.
+          </p>
+
+          <h3>4. Что будет со ставкой после марта 2026 года?</h3>
+          <p>
+            По завершении программы льготной ипотеки условия изменятся: базовые ставки по рынку могут вырасти существенно.
+          </p>
+
+          <h3>5. Можно ли купить вторичку или апартаменты?</h3>
+          <p>
+            Обычно программа распространяется на новостройки по 214-ФЗ, аккредитованные банками. Вторичка и апартаменты без статуса жилья
+            чаще всего не подходят.
+          </p>
+
+          <h2 id="conclusion">Выводы и рекомендации</h2>
+          <p>
+            Льготная ипотека в Сочи под 6% — это реальный шанс купить премиальную квартиру у моря, но только при грамотном подходе.
+            Важно заранее изучить список аккредитованных объектов, подготовить первоначальный взнос и быть готовым к дополнительным расходам.
+          </p>
+          <p>
+            Не откладывайте решение: после марта 2026 года условия могут стать заметно жестче, а доступных объектов — меньше.
+          </p>
+        </article>
+
+        <!-- 6) Блок "О авторе" -->
+        <section class="card" id="author" aria-label="О авторе">
+          <h4>О авторе</h4>
+          <div class="author">
+            <div class="avatar">
+              <!-- [IMAGE] Вставьте сюда <img src="..." alt="Фото автора" /> -->
+              Фото
+            </div>
+            <div>
+              <strong>Редакция Gross Journal</strong>
+              <p>
+                Пишем о рынке недвижимости, ипотечных программах и инвестиционных сценариях.
+                Наш фокус — практичные разборы: условия банков, ограничения программ и реальные шаги, которые экономят время и деньги.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- 7) Связанные статьи -->
+        <section class="related" id="related" aria-label="Связанные статьи">
+          <h2>Связанные статьи</h2>
+          <div class="cards">
+            <a class="post-card" href="#" aria-label="Открыть связанную статью 1">
+              <div class="post-thumb">
+                <!-- [IMAGE] -->
+                Превью 16:9
+              </div>
+              <div class="post-body">
+                <strong>Как банки оценивают новостройки: аккредитация и 214-ФЗ</strong>
+                <p>Критерии, из-за которых заявки «режут» даже при хорошем доходе.</p>
+              </div>
+            </a>
+
+            <a class="post-card" href="#" aria-label="Открыть связанную статью 2">
+              <div class="post-thumb">
+                <!-- [IMAGE] -->
+                Превью 16:9
+              </div>
+              <div class="post-body">
+                <strong>Первоначальный взнос: как планировать бюджет без сюрпризов</strong>
+                <p>Сценарии взноса 15–30% и как не «заморозить» ликвидность.</p>
+              </div>
+            </a>
+
+            <a class="post-card" href="#" aria-label="Открыть связанную статью 3">
+              <div class="post-thumb">
+                <!-- [IMAGE] -->
+                Превью 16:9
+              </div>
+              <div class="post-body">
+                <strong>Ипотека vs рассрочка: где риски, а где выгода</strong>
+                <p>Сравнение по срокам, платежам и юридическим нюансам.</p>
+              </div>
+            </a>
+          </div>
+        </section>
+
+        <!-- 8) Форма подписки -->
+        <section class="subscribe card" id="subscribe" aria-label="Подписка на новости">
+          <h4>Подписка на новости</h4>
+          <p style="margin:0;color:var(--muted);font-size:14px;">
+            Раз в неделю присылаем короткую выжимку по ипотеке, рынку Сочи и инвестиционным сценариям — без спама.
+          </p>
+          <form action="#" method="post">
+            <label class="sr-only" for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="Ваш email" autocomplete="email" required />
+            <button type="submit">Подписаться</button>
+          </form>
+          <div class="hint">Нажимая «Подписаться», вы соглашаетесь с политикой обработки данных (добавьте ссылку при необходимости).</div>
+        </section>
+
+        <!-- 9) Комментарии / обсуждение -->
+        <section class="comments card" id="comments" aria-label="Комментарии">
+          <h4>Обсуждение</h4>
+
+          <!-- Список комментариев (пример) -->
+          <div class="comment">
+            <div class="head">
+              <span class="name">Алексей</span>
+              <span class="date">12 января 2026</span>
+            </div>
+            <p class="text">Подскажите, как проверить аккредитацию ЖК, если менеджер «уверяет», что всё подходит?</p>
+          </div>
+
+          <div class="comment">
+            <div class="head">
+              <span class="name">Марина</span>
+              <span class="date">15 января 2026</span>
+            </div>
+            <p class="text">Спасибо за разбор! Особенно про лимит 6 млн — многие реально путают с ценой квартиры.</p>
+          </div>
+
+          <!-- Форма добавления комментария -->
+          <div style="margin-top:14px;">
+            <strong style="display:block;margin-bottom:10px;">Оставить комментарий</strong>
+            <form action="#" method="post">
+              <div class="row">
+                <div>
+                  <label class="sr-only" for="name">Имя</label>
+                  <input id="name" name="name" type="text" placeholder="Ваше имя" autocomplete="name" required />
+                </div>
+                <div>
+                  <label class="sr-only" for="contact">Email (не публикуется)</label>
+                  <input id="contact" name="contact" type="email" placeholder="Email (не публикуется)" autocomplete="email" required />
+                </div>
+              </div>
+
+              <label class="sr-only" for="message">Комментарий</label>
+              <textarea id="message" name="message" rows="5" placeholder="Ваш комментарий..." required></textarea>
+
+              <button type="submit">Отправить</button>
+              <div class="hint">Это статический шаблон. Подключите обработчик формы на стороне сервера при необходимости.</div>
+            </form>
+          </div>
+        </section>
+      </div>
+
+      <!-- Sidebar (вторая колонка) -->
+      <aside aria-label="Боковая панель">
+        <section class="card">
+          <h4>Содержание</h4>
+          <div class="toc">
+            <a href="#why">Почему подход не работает</a>
+            <a href="#mechanics">Как устроена программа</a>
+            <a href="#who">Для кого доступна</a>
+            <a href="#why_only_some">Почему 6% только для части ЖК</a>
+            <a href="#mortgage_vs_installments">Ипотека или рассрочка</a>
+            <a href="#mistakes">Ошибки и мифы</a>
+            <a href="#steps">Пошаговый алгоритм</a>
+            <a href="#faq">Частые вопросы</a>
+            <a href="#conclusion">Выводы</a>
+          </div>
+        </section>
+
+        <section class="card">
+          <h4>Теги</h4>
+          <span class="tag">льготная ипотека</span>
+          <span class="tag">Сочи</span>
+          <span class="tag">новостройки</span>
+          <span class="tag">премиум</span>
+          <span class="tag">214-ФЗ</span>
+          <span class="tag">аккредитация</span>
+        </section>
+
+        <section class="card">
+          <h4>Заметка редакции</h4>
+          <p style="margin:0;color:var(--muted);font-size:14px;">
+            Быстро заменить ключевые поля можно прямо в HTML:
+            <br><strong>Заголовок</strong> — h1, <strong>дата</strong> — time, <strong>автор</strong> — meta item,
+            <strong>featured image</strong> — блок с пометкой <code>&lt;!-- [IMAGE] --&gt;</code>.
+          </p>
+        </section>
+      </aside>
+    </div>
+  </main>
+
+  <!-- 10) Подвал (Footer) -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>© <span id="year">2026</span> Gross Journal. Все права защищены.</div>
+      <div>
+        <a href="#">Политика конфиденциальности</a>
+        <span aria-hidden="true"> · </span>
+        <a href="#">Контакты</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Небольшой бонус: обновление года без библиотек (можете удалить) -->
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
